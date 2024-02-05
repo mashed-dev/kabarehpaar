@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://kabarehepaar.at/ -->
+<html class=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+	<title>Gabriele und Otto Köhlmeier - Das Kabarehepaar</title>
+	<!-- Styles -->
+	<link rel="stylesheet" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/style.css">
+	<link rel="stylesheet" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/font-awesome.min.css">
+	<!-- Scripts -->
+	<script src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.js"></script>
+	<script src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/menu.js"></script>
+	<script src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/scroll.js"></script>
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="http://kabarehepaar.at/images/favicon.png">
+    
+
+	<!-- Add jQuery library -->
+	<script type="text/javascript" src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery-1.10.1.min.js"></script>
+
+	<!-- Add mousewheel plugin (this is optional) 
+	<script type="text/javascript" src="lib/jquery.mousewheel-3.0.6.pack.js"></script>
+-->
+	<!-- Add fancyBox main JS and CSS files -->
+	<script type="text/javascript" src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox.js"></script>
+	<link rel="stylesheet" type="text/css" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox.css" media="screen">
+
+	<!-- Add Button helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox-buttons.css">
+	<script type="text/javascript" src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox-buttons.js"></script>
+
+	<!-- Add Thumbnail helper (this is optional) -->
+	<link rel="stylesheet" type="text/css" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox-thumbs.css">
+	<script type="text/javascript" src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox-thumbs.js"></script>
+
+	<!-- Add Media helper (this is optional) -->
+	<script type="text/javascript" src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/jquery.fancybox-media.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			/*
+			 *  Simple image gallery. Uses default settings
+			 */
+
+			$('.fancybox').fancybox();
+
+			/*
+			 *  Different effects
+			 */
+
+			// Change title type, overlay closing speed
+			$(".fancybox-effects-a").fancybox({
+				helpers: {
+					title : {
+						type : 'outside'
+					},
+									
+					
+					overlay : {
+						speedOut : 0
+					}
+				}
+			});
+
+			// Disable opening and closing animations, change title type
+			$(".fancybox-effects-b").fancybox({
+				openEffect  : 'none',
+				closeEffect	: 'none',
+
+				helpers : {
+					title : {
+						type : 'over'
+					}
+				}
+			});
+
+			// Set custom style, close if clicked, change title type and overlay color
+			$(".fancybox-effects-c").fancybox({
+				wrapCSS    : 'fancybox-custom',
+				closeClick : true,
+
+				openEffect : 'none',
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					overlay : {
+						css : {
+							'background' : 'rgba(238,238,238,0.85)'
+						}
+					}
+				}
+			});
+
+			// Remove padding, set opening and closing animations, close if clicked and disable overlay
+			$(".fancybox-effects-d").fancybox({
+				padding: 0,
+
+				openEffect : 'elastic',
+				openSpeed  : 150,
+
+				closeEffect : 'elastic',
+				closeSpeed  : 150,
+
+				closeClick : true,
+
+				helpers : {
+					overlay : null
+				}
+			});
+
+			/*
+			 *  Button helper. Disable animations, hide close button, change title type and content
+			 */
+
+			$('.fancybox-buttons').fancybox({
+				openEffect  : 'none',
+				closeEffect : 'none',
+
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+
+				helpers : {
+					title : {
+						type : 'inside'
+					},
+					buttons	: {}
+				},
+
+				afterLoad : function() {
+					this.title = 'Image ' + (this.index + 1) + ' of ' + this.group.length + (this.title ? ' - ' + this.title : '');
+				}
+			});
+
+
+			/*
+			 *  Thumbnail helper. Disable animations, hide close button, arrows and slide to next gallery item if clicked
+			 */
+
+			$('.fancybox-thumbs').fancybox({
+				prevEffect : 'none',
+				nextEffect : 'none',
+
+				closeBtn  : false,
+				arrows    : false,
+				nextClick : true,
+
+				helpers : {
+					thumbs : {
+						width  : 50,
+						height : 50
+					}
+				}
+			});
+
+			/*
+			 *  Media helper. Group items, disable animations, hide arrows, enable media and button helpers.
+			*/
+			$('.fancybox-media')
+				.attr('rel', 'media-gallery')
+				.fancybox({
+					openEffect : 'none',
+					closeEffect : 'none',
+					prevEffect : 'none',
+					nextEffect : 'none',
+
+					arrows : false,
+					helpers : {
+						media : {},
+						buttons : {}
+				
+						
+						
+					}
+					
+					
+					
+					
+				});
+
+			/*
+			 *  Open manually
+			 */
+
+			$("#fancybox-manual-a").click(function() {
+				$.fancybox.open('1_b.jpg');
+			});
+
+			$("#fancybox-manual-b").click(function() {
+				$.fancybox.open({
+					href : 'iframe.html',
+					type : 'iframe',
+					padding : 5
+				});
+			});
+
+			$("#fancybox-manual-c").click(function() {
+				$.fancybox.open([
+					{
+						href : '1_b.jpg',
+						title : 'My title'
+					}, {
+						href : '2_b.jpg',
+						title : '2nd title'
+					}, {
+						href : '3_b.jpg'
+					}
+				], {
+					helpers : {
+						thumbs : {
+							width: 75,
+							height: 50
+						}
+					}
+				});
+			});
+
+
+		});
+	</script>
+	
+
+  <link rel="stylesheet" type="text/css" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/cookieconsent.min.css">
+<script src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/cookieconsent.min.js"></script>
+<script>
+window.addEventListener("load", function(){
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#eaf7f7",
+      "text": "#5c7291"
+    },
+    "button": {
+      "background": "transparent",
+      "text": "#56cbdb",
+      "border": "#56cbdb"
+    }
+  }
+})});
+</script>  
+    
+    
+    
+<style type="text/css">.fancybox-margin{margin-right:0px;}</style><style></style></head>
+<body class="fade-in cmon" style=""><div role="dialog" aria-live="polite" aria-label="cookieconsent" aria-describedby="cookieconsent:desc" class="cc-window cc-banner cc-type-info cc-theme-block cc-bottom cc-color-override-294089269 " style=""><!--googleoff: all--><span id="cookieconsent:desc" class="cc-message">This website uses cookies to ensure you get the best experience on our website. <a aria-label="learn more about cookies" role="button" tabindex="0" class="cc-link" href="http://cookiesandyou.com/" target="_blank">Learn more</a></span><div class="cc-compliance"><a aria-label="dismiss cookie message" role="button" tabindex="0" class="cc-btn cc-dismiss">Got it!</a></div><!--googleon: all--></div>
+
+	<!-- HEADER /////////////////////////////////////////////////////////////////////////// -->
+	<header id="welcome" class="parent">
+		<div class="fade child">
+			<div class="container_small">
+				<!-- Navigation 
+				<nav>
+					<ul >
+						<li class="hide menu"><a href="#about">Kabarehepaar</a></li>
+						<li class="hide menu"><a href="#portfolio">Kabarett und Theater</a></li>
+						<li class="hide menu"><a href="#contact">KOntakt</a></li>
+					</ul>
+					<p class="burger"><img src="images/burger.png" alt="Menu"></p>
+				</nav>-->
+				<!-- Header Titles -->
+				<h1 class="header_title">Gabriele &amp; Otto Köhlmeier</h1>
+				<h2 class="header_subtitle">Das Kabarehepaar</h2>
+			</div>
+		</div>
+	</header>
+	<!-- END HEADER /////////////////////////////////////////////////////////////////////////// -->
+	
+	<!-- ABOUT SECTION /////////////////////////////////////////////////////////////////////////// -->
+	<section id="about">
+		<div class="container_small">
+			<h2 class="section_title">Kabarehepaar</h2>
+			<h3 class="section_subtitle">Gabriele und Otto Köhlmeier</h3>
+			<p>1973 lernten sie sich an der Grazer Kunstuniversität während ihres Studiums des Schauspiels und der Regie kennen. Noch an der Uni folgten die ersten gemeinsamen Projekte. 1977 gründeten die beiden die freie Gruppe "theaterarbeiterkollektiv", eine der ersten freien (professionellen) Theatergruppen Österreichs. Mit diesem bzw. für dieses Ensemble schufen sie über zehn Produktionen, die im gesamten deutschsprachigen Raum mit großem Erfolg gezeigt wurden. Daneben waren sie an verschiedensten Theatern tätig. 1986 - nach Heirat und Elternschaft - wurden die beiden in der "Elxenbacher Kunstmühle" in der Südoststeiermark sesshaft, von wo aus sie kulturpolitische Basisarbeit verrichteten. Seit einigen Jahren sind sie wieder theatermäßig unterwegs. Vorwiegend im Bereich der Kleinkunst, des Kabaretts. Seit kurzem als "das Kabarehepaar Köhlmeier &amp; Köhlmeier".
+
+</p>
+			<!--<a href="stabatmaterfuriosa.html" class="button"></i> Stabat Mater Furiosa - das neue Theaterstück</a> -->
+            <a href="https://www.facebook.com/kabarehepaar/" class="button"> Aktuelle Termine und Neuigkeiten</a>
+		</div>
+	</section>
+	<!-- END ABOUT SECTION /////////////////////////////////////////////////////////////////////////// -->
+	
+	<!-- PORTFOLIO SECTION /////////////////////////////////////////////////////////////////////////// -->
+	<section id="portfolio">
+		<div class="container_big">
+			<h2 class="section_title">Kabarett und Theater</h2>
+			<h3 class="section_subtitle">Aktuelle Stücke, buchbare Programme</h3>
+			<div class="works">
+				
+                
+                <!-- Work 01 -->
+                
+                
+                     <article>
+					<a class="fancybox" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/ueberlebensfrage.jpg" target="_blank" title="Überlebensfrage">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/ueberlebensfrage.jpg" alt="">
+							<h3 class="caption">Überlebensfrage</h3>
+						</div>
+					</a>
+				</article>
+
+
+ 				 <article>
+					<a class="fancybox" href="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/revoluzzer.jpg" target="_blank" title="Der Alte Revoluzzer">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/revoluzzer.jpg" alt="">
+							<h3 class="caption">Der Alte Revoluzzer</h3>
+						</div>
+					</a>
+				</article>
+
+                
+        		<article>
+					<a href="http://kabarehepaar.at/datumabgelaufen.html" title="Datum abgelaufen">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/DatumAbgelaufen_Szenenfotothumb.jpg" alt="Datum abgelaufen">
+							<h3 class="caption">Datum abgelaufen</h3>
+						</div>
+					</a>
+				</article>
+                
+                
+                
+                
+                      
+		
+        		<article>
+					<a href="http://kabarehepaar.at/stabatmaterfuriosa.html" title="Stabat Mater Furiosa">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/StabatMaterSzenenfoto_thumb.jpg" alt="Stabat Mater Furiosa">
+							<h3 class="caption">Stabat Mater Furiosa.</h3>
+						</div>
+					</a>
+				</article>
+        
+        
+        
+        
+        
+        		<article>
+					<a href="http://kabarehepaar.at/wie_auch_immer.html" title="Wie Auch Immer - Oder: Wie du selbst 30 Jahre Ehe überlebst.">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/wie_auch_immer.jpg" alt="Wie Auch Immer Kabarett">
+							<h3 class="caption">Wie Auch Immer</h3>
+						</div>
+					</a>
+				</article>
+			
+				<!-- Work 03 -->
+				<article>
+					<a class="fancybox-media" href="https://www.youtube.com/watch?v=TOe3C8MKlus" title="Faltenlos und Knitterfrei" rel="media-gallery">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/faltenlos_und_knitterfrei.jpg" alt="">
+							<h3 class="caption">Faltenlos und Knitterfrei</h3>
+						</div>
+					</a>
+				</article>
+				<!-- Work 02 -->
+				
+               
+                
+                <article>
+					<a class="fancybox" href="http://www.diekunstmuehle.at/pdf/halbe_halbe.pdf" target="_blank" title="Halbe:Halbe">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/halbe_halbe.jpg" alt="">
+							<h3 class="caption">Halbe : Halbe</h3>
+						</div>
+					</a>
+				</article>
+                
+			
+				<!-- Work 06 -->
+			</div>
+        
+        <h3 class="section_subtitle"><br>Vergangene Stücke, nur auf Anfrage buchbare Programme</h3>
+			<div class="works">
+				
+		
+        
+        	<!-- Work 05 -->
+				<article>
+					<a class="fancybox-media" href="https://www.youtube.com/watch?v=iJ_JJt1CgUc" title="Is&#39; was, Alter?" rel="media-gallery">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/Is_Was_Alter.jpg" alt="">
+							<h3 class="caption">Is' was, Alter?</h3>
+						</div>
+					</a>
+				</article>
+        
+				<!-- Work 04 -->
+				<article>
+					<a class="fancybox-media" href="https://www.youtube.com/watch?v=ztw06JNWswc" title="Liebe Sex und Scheidungsrate" rel="media-gallery">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/liebe_sex_scheidungsrate.jpg" alt="">
+							<h3 class="caption">Liebe, Sex und Scheidungsrate</h3>
+						</div>
+					</a>
+				</article>
+				<!-- Work 05 -->
+				<article>
+					<a class="fancybox-media" href="https://youtu.be/KwbBefZm_D4" title="Sissi Infernal" rel="media-gallery">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/sissi_infernal.jpg" alt="">
+							<h3 class="caption">Sissi Infernal</h3>
+						</div>
+					</a>
+				</article>
+				<!-- Work 06 -->
+				<article>
+					<a class="fancybox-media" href="https://vimeo.com/7142947" title="Nimm 2 Zahl 3" rel="media-gallery">
+						<div class="border">
+							<img src="./Gabriele und Otto Köhlmeier - Das Kabarehepaar_files/nimm2zahl3.jpg" alt="">
+							<h3 class="caption">Nimm 2 Zahl 3</h3>
+						</div>
+					</a>
+				</article>
+			</div>
+            <div class="right">
+				<a href="http://kabarehepaar.at/#welcome">Zurück zum Anfang <i class="fa fa-long-arrow-up"></i></a>
+			</div>
+		</div>
+        
+        
+        
+        
+		
+        
+        
+        
+	</section>
+	<!-- END PORTFOLIO SECTION /////////////////////////////////////////////////////////////////////////// -->
+    
+    
+	
+	<!-- CONTACT SECTION /////////////////////////////////////////////////////////////////////////// -->
+	<section id="contact">
+		<div class="container_small">
+			<h2 class="section_title">Buchen Sie uns.</h2>
+			<h3 class="section_subtitle">Und wir werden Sie begeistern!</h3>
+			<div class="info">
+				<!-- Address -->
+				<div>
+					<i class="fa fa-map-marker"></i>
+					<h3>Gabriele und Otto Köhlmeier</h3>
+					<p>Elxenbach 109 <br> 8323 Sankt Marein bei Graz <br> Österreich</p>
+				</div>
+				<!-- Phone -->
+				<div>
+					<i class="fa fa-mobile"></i>
+					<h3>Telefon</h3>
+					<p>+ 43 3119 2867</p>
+                    <p>+ 43 660 46 37 731</p>
+                    <p>+ 43 664 53 45 406</p>
+				</div>
+				<!-- Email -->
+				<div>
+					<i class="fa fa-envelope-o"></i>
+					<h3>Email</h3>
+					<p>kunstmuehle[@]hotmail.com</p>
+                    <br>
+                    <a href="http://diekunstmuehle.at/" target="_blank" title="Die Elxenbacher Kunstmühle">
+					 die Kunstmühle
+				</a>
+                <br>
+                
+                <a href="http://kabarehepaar.at/Datenschutz.pdf" target="_blank" title="Datenschutz"> Datenschutzerklärung </a>
+                
+				</div>
+			</div>
+			<!-- Social icons -->
+			<div class="social">
+				
+				<!-- Facebook -->
+				<a href="https://www.facebook.com/kabarehepaar" target="_blank">
+					<i class="fa fa-facebook"></i>
+				</a>
+				
+                <!-- Instagram -->
+				<a href="https://www.youtube.com/channel/UCA2nD7IY3I4BXRlwGOjtqaA" target="_blank" title="Kabarehepaar auf Youtube">
+					<i class="fa fa-youtube"></i>
+				</a>
+                
+				<!-- Instagram -->
+				<a href="http://dkmotion.com/" target="_blank" title="Filmproduktion und Videoproduktion Graz">
+					<i class="fa fa-instagram"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+	<!-- END CONTACT SECTION /////////////////////////////////////////////////////////////////////////// -->	
+	
+	<!-- FOOTER /////////////////////////////////////////////////////////////////////////// -->
+	<footer>
+		<div class="container_footer">
+			<div class="left">
+				<p>© 2015 <span>Gabriele und Otto Köhlmeier</span></p>
+                <a href="http://dkmotion.com/" target="_blank" title="Filmproduktion aus der Steiermark und Graz">
+					Filmproduktion der einzelnen Stücke: dkmotion.com
+				</a>
+			</div>
+			<div class="right">
+				<a href="http://kabarehepaar.at/#welcome">Zurück zum Anfang <i class="fa fa-long-arrow-up"></i></a><br>
+                <a href="http://kabarehepaar.at/impressum.html">impressum </a>
+			</div>
+		</div>
+	</footer>
+	<!-- END FOOTER /////////////////////////////////////////////////////////////////////////// -->	
+
+</body></html>
